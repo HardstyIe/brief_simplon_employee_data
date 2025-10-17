@@ -3,7 +3,6 @@ import csv
 import streamlit as st
 import pandas as pd
 import numpy as np
-import datetime
 
 # Function to load json
 def load_json():
@@ -101,9 +100,12 @@ def calc_mensual_salary(informations):
         print()
 
         # statistic per branch
-        salary_max = max(filial_salary_list)
-        salary_min = min(filial_salary_list)
-        salary_average = sum(filial_salary_list) / len(filial_salary_list)
+        if filial_salary_list:
+            salary_max = max(filial_salary_list)
+            salary_min = min(filial_salary_list)
+            salary_average = sum(filial_salary_list) / len(filial_salary_list)
+        else:
+            salary_max = salary_min = salary_average = 0
 
         csv_rows.append([filial, "MIN", "", salary_min])
         csv_rows.append([filial, "MAX", "", salary_max])
@@ -116,9 +118,13 @@ def calc_mensual_salary(informations):
     print("=" * 50)
 
     # Global statistic tied to company
-    salary_max_global = max(salary_all_company)
-    salary_min_global = min(salary_all_company)
-    salary_average_global = sum(salary_all_company) / len(salary_all_company)
+    if salary_all_company:
+        salary_max_global = max(salary_all_company)
+        salary_min_global = min(salary_all_company)
+        salary_average_global = sum(salary_all_company) / len(salary_all_company)
+    else:
+        salary_max_global = salary_min_global = salary_average_global = 0
+
 
     print(f"Statistique des salaires pour l'entreprise \nSalaire mini : {salary_min_global}€ \nSalaire max : {salary_max_global}€ \nSalaire moyen : {salary_average_global}€")
     return csv_rows
