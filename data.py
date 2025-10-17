@@ -3,6 +3,9 @@ import csv
 import streamlit as st
 import pandas as pd
 import numpy as np
+from streamlit_desktop_app import start_desktop_app
+
+start_desktop_app("data.py", title="Gestion des Salaires des Employés (version Collections)")
 
 # Function to load json
 def load_json():
