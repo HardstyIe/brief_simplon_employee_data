@@ -1,0 +1,60 @@
+Fillial,Name,Job,Monthly Salary (€)
+TechCorp,Helen,Chef de projet,7925.0
+TechCorp,Quincy,Testeur,4816.0
+TechCorp,Fred,Manager,8800
+TechCorp,Steve,Chef de projet,8000
+TechCorp,Linda,Chef de projet,7000
+TechCorp,Bob,Analyste,6400
+TechCorp,Steve,Chef de projet,8375.0
+TechCorp,Karen,Développeur,5600
+TechCorp,Paul,Designer,4200
+TechCorp,Bob,Développeur,5582.5
+TechCorp,Bob,Manager,8525.0
+TechCorp,Mike,Testeur,4480
+TechCorp,Mike,Chef de projet,8225.0
+TechCorp,Charlie,Chef de projet,7400
+TechCorp,Helen,Testeur,4466.0
+TechCorp,MIN,,4200
+TechCorp,MAX,,8800
+TechCorp,AVERAGE,,6652.966666666666
+DesignWorks,Jack,Analyste,6400
+DesignWorks,Emma,Designer,4800
+DesignWorks,Ian,Chef de projet,7150.0
+DesignWorks,Tina,Testeur,4466.0
+DesignWorks,Oliver,Chef de projet,8675.0
+DesignWorks,Jack,Designer,4200
+DesignWorks,Oliver,Manager,9212.5
+DesignWorks,Rachel,Testeur,4004.0
+DesignWorks,Ian,Testeur,4396.0
+DesignWorks,Jack,Chef de projet,7150.0
+DesignWorks,Rachel,Analyste,5600
+DesignWorks,Helen,Développeur,5005.0
+DesignWorks,George,Développeur,5600
+DesignWorks,Rachel,Testeur,4466.0
+DesignWorks,Emma,Chef de projet,7925.0
+DesignWorks,Mike,Manager,8800
+DesignWorks,Ian,Chef de projet,7300.0
+DesignWorks,Bob,Chef de projet,7750.0
+DesignWorks,MIN,,4004.0
+DesignWorks,MAX,,9212.5
+DesignWorks,AVERAGE,,6272.194444444444
+ProjectLead,Fred,Testeur,4858.0
+ProjectLead,Mike,Développeur,5180
+ProjectLead,Oliver,Chef de projet,7225.0
+ProjectLead,Tina,Manager,8140
+ProjectLead,Linda,Testeur,4228.0
+ProjectLead,Rachel,Designer,4785.0
+ProjectLead,Bob,Manager,8607.5
+ProjectLead,Steve,Chef de projet,7925.0
+ProjectLead,Jack,Chef de projet,7400
+ProjectLead,Jack,Designer,4695.0
+ProjectLead,Charlie,Manager,8635.0
+ProjectLead,Oliver,Développeur,5180
+ProjectLead,Nina,Analyste,6700.0
+ProjectLead,Steve,Designer,4665.0
+ProjectLead,Linda,Développeur,4952.5
+ProjectLead,Jack,Testeur,4382.0
+ProjectLead,Charlie,Chef de projet,7375.0
+ProjectLead,MIN,,4228.0
+ProjectLead,MAX,,8635.0
+ProjectLead,AVERAGE,,6172.529411764706
