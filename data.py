@@ -55,6 +55,7 @@ def calc_mensual_salary(informations:list):
     # Calculs
     for filial in informations:
         filial_salary_list = []
+        rows = []
 
         print(f"\nFilliale : {filial}\n")
 
@@ -76,7 +77,17 @@ def calc_mensual_salary(informations:list):
             filial_salary_list.append(mensual_salary)
             salary_all_company.append(mensual_salary)
             csv_rows.append([filial, name, job, mensual_salary])
+            rows.append({
+                "name":name,
+                "job":job,
+                "hourly_rate":hourly_rate,
+                "weekly_hours_worked":weekly_hours_worked,
+                "contract_hours":contract_hours,
+                "overtime_hours":overtime_hours,
+                "mensual_salary":round(mensual_salary,2)
+            })
 
+            filial_stats[filial] = pd.DataFrame(rows)
             print(f"{name:<{max_length_name}} | {job:<{max_length_job}} | Salaire mensuel : {mensual_salary:.2f}€")
 
         # Statistiques de la filiale
@@ -86,12 +97,6 @@ def calc_mensual_salary(informations:list):
             salary_avg = sum(filial_salary_list) / len(filial_salary_list)
         else:
             salary_min = salary_max = salary_avg = 0
-
-        filial_stats[filial] = {
-            "Salaire minimum": salary_min,
-            "Salaire maximum": salary_max,
-            "Salaire moyen": salary_avg
-        }
 
         print("\n" + "=" * 50)
         print(f"Statistiques des salaires pour {filial}")
@@ -140,34 +145,55 @@ def export_salaries_to_csv(csv_rows:list, filename="salaries_export.csv"):
 # -------------------------
 # 4️⃣ Affichage Streamlit
 # -------------------------
-def show_data_tabs(informations:list, filial_stats:dict):
+def show_data_tabs(filial_stats:dict):
     """
     Function for streamlit app to display data
 
     [Arguments]\n
-    informations: list = the data loading from json\n
     filial_stats: dict = data returned by calc_mensual_salary()
     """
-    tabs = st.tabs(list(informations.keys()))
+    if not filial_stats:
+        st.warning("Aucune filiale à afficher.")
+        return
 
-    for tab, filial in zip(tabs, informations.keys()):
-        with tab:
-            st.subheader(filial)
+    tabs = st.tabs(list(filial_stats.keys()))
+    for i, filial in enumerate(filial_stats.keys()):
+        with tabs[i]:
+            df = filial_stats[filial]
+            if df.empty:
+                st.info("Aucun employé.")
+                continue
 
-            # Détails des employés
-            df = pd.DataFrame(informations[filial])
-            df = df.convert_dtypes()
-            st.dataframe(df)
+            # Slider pour le salaire (double poignée)
+            min_sal = int(df["mensual_salary"].min())
+            max_sal = int(df["mensual_salary"].max())
+            salary_range = st.slider(
+                f"Filtrer salaire ({filial})",
+                min_sal, max_sal, (min_sal, max_sal), step=10, key=f"salary_{filial}"
+            )
 
+            # Filtre par poste (multiselect)
+            jobs = ["Tous"] + sorted(df["job"].unique().tolist())
+            job_sel = st.selectbox("Filtrer par poste", jobs, key=f"job_{filial}")
+
+            filtered = df[
+                (df["mensual_salary"] >= salary_range[0]) &
+                (df["mensual_salary"] <= salary_range[1])
+            ]
+            if job_sel != "Tous":
+                filtered = filtered[filtered["job"] == job_sel]
+
+            st.dataframe(filtered, width="stretch")
+            
             # Statistiques de la filiale
             stats = filial_stats.get(filial, {})
             st.write("### Statistiques")
             st.table(pd.DataFrame([{
-        "Salaire minimum": f"{stats["Salaire minimum"]:.2f}€",
-        "Salaire maximum": f"{stats["Salaire maximum"]:.2f}€",
-        "Salaire moyen": f"{stats["Salaire moyen"]:.2f}€"
-    }]))
-
+                "Salaire minimum": f"{min_sal:.2f}€",
+                "Salaire maximum": f"{max_sal:.2f}€",
+                "Salaire moyen": f"{round(filtered["mensual_salary"].mean(), 2):.2f}€"
+            }]))
+            st.metric("Employés visibles", len(filtered))
 
 # -------------------------
 # 5️⃣ Programme principal
@@ -177,7 +203,7 @@ with open('salaries_export.csv') as f:
    st.download_button('Télécharger CSV', f,'text/csv')
 
 
-show_data_tabs(informations, filial_stats)
+show_data_tabs(filial_stats)
 st.divider()
 st.write("### Statistiques globales")
 st.table(pd.DataFrame([{
