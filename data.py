@@ -44,6 +44,8 @@ def calc_mensual_salary(informations:list):
     max_length_name = max_length_job = 0
     salary_all_company = []
     csv_rows = []
+    csv_stats_global = []
+    csv_stats_fillial = []
     filial_stats = {} 
 
     # Trouver les largeurs pour l'affichage console
@@ -76,7 +78,7 @@ def calc_mensual_salary(informations:list):
 
             filial_salary_list.append(mensual_salary)
             salary_all_company.append(mensual_salary)
-            csv_rows.append([filial, name, job, mensual_salary])
+            csv_rows.append([filial, name, job, mensual_salary, overtime_hours])
             rows.append({
                 "name":name,
                 "job":job,
@@ -97,7 +99,10 @@ def calc_mensual_salary(informations:list):
             salary_avg = sum(filial_salary_list) / len(filial_salary_list)
         else:
             salary_min = salary_max = salary_avg = 0
-
+        
+        # ajout des données filiale dans le csv
+        csv_stats_global.append([filial,salary_min,salary_max,round(salary_avg, 2)]
+                                )
         print("\n" + "=" * 50)
         print(f"Statistiques des salaires pour {filial}")
         print(f"Salaire mini : {salary_min:.2f}€")
@@ -112,33 +117,53 @@ def calc_mensual_salary(informations:list):
     else:
         salary_min_global = salary_max_global = salary_avg_global = 0
 
+    csv_stats_fillial.append(["Entreprise (global)",salary_min_global,salary_max_global,round(salary_avg_global, 2)])
+
     print("=" * 50)
     print("Statistiques globales :")
     print(f"Salaire mini : {salary_min_global:.2f}€")
     print(f"Salaire max  : {salary_max_global:.2f}€")
     print(f"Salaire moyen: {salary_avg_global:.2f}€\n")
 
-    return csv_rows, filial_stats, salary_min_global, salary_max_global, salary_avg_global
+    return csv_rows, filial_stats, salary_min_global, salary_max_global, salary_avg_global, csv_stats_fillial, csv_stats_global
 
 
 # -------------------------
 # 3️⃣ Export CSV
 # -------------------------
-def export_salaries_to_csv(csv_rows:list, filename="salaries_export.csv"):
+def export_salaries_to_csv(csv_rows:list,csv_stats_global, csv_stats_fillial, filename="salaries_export.csv"):
     """
     This function is used to create a csv file using data collected
 
     [Arguments]\n
     csv_rows: list = data collected previously to import in the csv\n
-    filename: str = the name of the file you want to create
+    csv_stats_filia = data collected previously to import in the csv\n
+    csv_stats_fillial = data collected previously to import in the csv
+    filename: str = the name of the file you want to create (default="salaries_export.csv")
 
     [Return]\n
     create a csv file with the collected data
     """
     with open(filename, mode='w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(["Filiale", "Name", "Job", "Monthly Salary (€)"])
+
+        # --- Section employés ---
+        writer.writerow(["--- Détails employés ---"])
+        writer.writerow(["Filiale", "Name", "Job", "Mensual Salary (€)", "Overtime Hours"])
         writer.writerows(csv_rows)
+        writer.writerow([])
+
+        writer.writerow(["--- Statistiques globales ---"])
+        # --- Section statistiques globales ---
+        writer.writerow(["Filiale", "Salaire minimum (€)", "Salaire maximum (€)", "Salaire moyen (€)"])
+        writer.writerows(csv_stats_global)
+        writer.writerow([])
+
+        # --- Section statistiques filiales ---
+        writer.writerow(["--- Statistiques par filiale ---"])
+        writer.writerow(["Zone", "Salaire minimum (€)", "Salaire maximum (€)", "Salaire moyen (€)"])
+        writer.writerows(csv_stats_fillial)
+
     print(f"✅ CSV file exported: {filename}")
 
 
@@ -197,12 +222,13 @@ def show_data_tabs(filial_stats:dict):
 # -------------------------
 # 5️⃣ Programme principal
 # -------------------------
-csv_rows, filial_stats, salary_min_g, salary_max_g, salary_avg_g = calc_mensual_salary(informations)
+csv_rows, filial_stats, salary_min_g, salary_max_g, salary_avg_g, csv_stats_global, csv_stats_fillial = calc_mensual_salary(informations)
 with open('salaries_export.csv') as f:
    st.download_button('Télécharger CSV', f,'text/csv')
 
 
 show_data_tabs(filial_stats)
+export_salaries_to_csv(csv_rows,csv_stats_global,csv_stats_fillial)
 
 # Affichage des stats global de l'entreprise
 st.divider()
