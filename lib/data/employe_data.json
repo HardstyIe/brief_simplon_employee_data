@@ -1,0 +1,358 @@
+{
+    "TechCorp": [
+        {
+            "name": "Helen",
+            "job": "Chef de projet",
+            "hourly_rate": 50,
+            "weekly_hours_worked": 44,
+            "contract_hours": 37
+        },
+        {
+            "name": "Quincy",
+            "job": "Testeur",
+            "hourly_rate": 28,
+            "weekly_hours_worked": 48,
+            "contract_hours": 40
+        },
+        {
+            "name": "Fred",
+            "job": "Manager",
+            "hourly_rate": 55,
+            "weekly_hours_worked": 33,
+            "contract_hours": 40
+        },
+        {
+            "name": "Steve",
+            "job": "Chef de projet",
+            "hourly_rate": 50,
+            "weekly_hours_worked": 32,
+            "contract_hours": 40
+        },
+        {
+            "name": "Linda",
+            "job": "Chef de projet",
+            "hourly_rate": 50,
+            "weekly_hours_worked": 34,
+            "contract_hours": 35
+        },
+        {
+            "name": "Bob",
+            "job": "Analyste",
+            "hourly_rate": 40,
+            "weekly_hours_worked": 35,
+            "contract_hours": 40
+        },
+        {
+            "name": "Steve",
+            "job": "Chef de projet",
+            "hourly_rate": 50,
+            "weekly_hours_worked": 50,
+            "contract_hours": 37
+        },
+        {
+            "name": "Karen",
+            "job": "Développeur",
+            "hourly_rate": 35,
+            "weekly_hours_worked": 33,
+            "contract_hours": 40
+        },
+        {
+            "name": "Paul",
+            "job": "Designer",
+            "hourly_rate": 30,
+            "weekly_hours_worked": 30,
+            "contract_hours": 35
+        },
+        {
+            "name": "Bob",
+            "job": "Développeur",
+            "hourly_rate": 35,
+            "weekly_hours_worked": 48,
+            "contract_hours": 35
+        },
+        {
+            "name": "Bob",
+            "job": "Manager",
+            "hourly_rate": 55,
+            "weekly_hours_worked": 45,
+            "contract_hours": 35
+        },
+        {
+            "name": "Mike",
+            "job": "Testeur",
+            "hourly_rate": 28,
+            "weekly_hours_worked": 33,
+            "contract_hours": 40
+        },
+        {
+            "name": "Mike",
+            "job": "Chef de projet",
+            "hourly_rate": 50,
+            "weekly_hours_worked": 43,
+            "contract_hours": 40
+        },
+        {
+            "name": "Charlie",
+            "job": "Chef de projet",
+            "hourly_rate": 50,
+            "weekly_hours_worked": 32,
+            "contract_hours": 37
+        },
+        {
+            "name": "Helen",
+            "job": "Testeur",
+            "hourly_rate": 28,
+            "weekly_hours_worked": 48,
+            "contract_hours": 35
+        }
+    ],
+    "DesignWorks": [
+        {
+            "name": "Jack",
+            "job": "Analyste",
+            "hourly_rate": 40,
+            "weekly_hours_worked": 38,
+            "contract_hours": 40
+        },
+        {
+            "name": "Emma",
+            "job": "Designer",
+            "hourly_rate": 30,
+            "weekly_hours_worked": 34,
+            "contract_hours": 40
+        },
+        {
+            "name": "Ian",
+            "job": "Chef de projet",
+            "hourly_rate": 50,
+            "weekly_hours_worked": 37,
+            "contract_hours": 35
+        },
+        {
+            "name": "Tina",
+            "job": "Testeur",
+            "hourly_rate": 28,
+            "weekly_hours_worked": 48,
+            "contract_hours": 35
+        },
+        {
+            "name": "Oliver",
+            "job": "Chef de projet",
+            "hourly_rate": 50,
+            "weekly_hours_worked": 49,
+            "contract_hours": 40
+        },
+        {
+            "name": "Jack",
+            "job": "Designer",
+            "hourly_rate": 30,
+            "weekly_hours_worked": 33,
+            "contract_hours": 35
+        },
+        {
+            "name": "Oliver",
+            "job": "Manager",
+            "hourly_rate": 55,
+            "weekly_hours_worked": 45,
+            "contract_hours": 40
+        },
+        {
+            "name": "Rachel",
+            "job": "Testeur",
+            "hourly_rate": 28,
+            "weekly_hours_worked": 37,
+            "contract_hours": 35
+        },
+        {
+            "name": "Ian",
+            "job": "Testeur",
+            "hourly_rate": 28,
+            "weekly_hours_worked": 43,
+            "contract_hours": 37
+        },
+        {
+            "name": "Jack",
+            "job": "Chef de projet",
+            "hourly_rate": 50,
+            "weekly_hours_worked": 37,
+            "contract_hours": 35
+        },
+        {
+            "name": "Rachel",
+            "job": "Analyste",
+            "hourly_rate": 40,
+            "weekly_hours_worked": 32,
+            "contract_hours": 35
+        },
+        {
+            "name": "Helen",
+            "job": "Développeur",
+            "hourly_rate": 35,
+            "weekly_hours_worked": 37,
+            "contract_hours": 35
+        },
+        {
+            "name": "George",
+            "job": "Développeur",
+            "hourly_rate": 35,
+            "weekly_hours_worked": 30,
+            "contract_hours": 40
+        },
+        {
+            "name": "Rachel",
+            "job": "Testeur",
+            "hourly_rate": 28,
+            "weekly_hours_worked": 48,
+            "contract_hours": 35
+        },
+        {
+            "name": "Emma",
+            "job": "Chef de projet",
+            "hourly_rate": 50,
+            "weekly_hours_worked": 44,
+            "contract_hours": 37
+        },
+        {
+            "name": "Mike",
+            "job": "Manager",
+            "hourly_rate": 55,
+            "weekly_hours_worked": 32,
+            "contract_hours": 40
+        },
+        {
+            "name": "Ian",
+            "job": "Chef de projet",
+            "hourly_rate": 50,
+            "weekly_hours_worked": 39,
+            "contract_hours": 35
+        },
+        {
+            "name": "Bob",
+            "job": "Chef de projet",
+            "hourly_rate": 50,
+            "weekly_hours_worked": 45,
+            "contract_hours": 35
+        }
+    ],
+    "ProjectLead": [
+        {
+            "name": "Fred",
+            "job": "Testeur",
+            "hourly_rate": 28,
+            "weekly_hours_worked": 49,
+            "contract_hours": 40
+        },
+        {
+            "name": "Mike",
+            "job": "Développeur",
+            "hourly_rate": 35,
+            "weekly_hours_worked": 32,
+            "contract_hours": 37
+        },
+        {
+            "name": "Oliver",
+            "job": "Chef de projet",
+            "hourly_rate": 50,
+            "weekly_hours_worked": 38,
+            "contract_hours": 35
+        },
+        {
+            "name": "Tina",
+            "job": "Manager",
+            "hourly_rate": 55,
+            "weekly_hours_worked": 37,
+            "contract_hours": 37
+        },
+        {
+            "name": "Linda",
+            "job": "Testeur",
+            "hourly_rate": 28,
+            "weekly_hours_worked": 39,
+            "contract_hours": 37
+        },
+        {
+            "name": "Rachel",
+            "job": "Designer",
+            "hourly_rate": 30,
+            "weekly_hours_worked": 48,
+            "contract_hours": 35
+        },
+        {
+            "name": "Bob",
+            "job": "Manager",
+            "hourly_rate": 55,
+            "weekly_hours_worked": 46,
+            "contract_hours": 35
+        },
+        {
+            "name": "Steve",
+            "job": "Chef de projet",
+            "hourly_rate": 50,
+            "weekly_hours_worked": 44,
+            "contract_hours": 37
+        },
+        {
+            "name": "Jack",
+            "job": "Chef de projet",
+            "hourly_rate": 50,
+            "weekly_hours_worked": 31,
+            "contract_hours": 37
+        },
+        {
+            "name": "Jack",
+            "job": "Designer",
+            "hourly_rate": 30,
+            "weekly_hours_worked": 46,
+            "contract_hours": 35
+        },
+        {
+            "name": "Charlie",
+            "job": "Manager",
+            "hourly_rate": 55,
+            "weekly_hours_worked": 43,
+            "contract_hours": 37
+        },
+        {
+            "name": "Oliver",
+            "job": "Développeur",
+            "hourly_rate": 35,
+            "weekly_hours_worked": 35,
+            "contract_hours": 37
+        },
+        {
+            "name": "Nina",
+            "job": "Analyste",
+            "hourly_rate": 40,
+            "weekly_hours_worked": 45,
+            "contract_hours": 40
+        },
+        {
+            "name": "Steve",
+            "job": "Designer",
+            "hourly_rate": 30,
+            "weekly_hours_worked": 42,
+            "contract_hours": 37
+        },
+        {
+            "name": "Linda",
+            "job": "Développeur",
+            "hourly_rate": 35,
+            "weekly_hours_worked": 36,
+            "contract_hours": 35
+        },
+        {
+            "name": "Jack",
+            "job": "Testeur",
+            "hourly_rate": 28,
+            "weekly_hours_worked": 46,
+            "contract_hours": 35
+        },
+        {
+            "name": "Charlie",
+            "job": "Chef de projet",
+            "hourly_rate": 50,
+            "weekly_hours_worked": 40,
+            "contract_hours": 35
+        }
+    ]
+}
