@@ -184,10 +184,9 @@ def show_data_tabs(filial_stats:dict):
                 filtered = filtered[filtered["job"] == job_sel]
 
             st.dataframe(filtered, width="stretch")
-            
+
             # Statistiques de la filiale
-            stats = filial_stats.get(filial, {})
-            st.write("### Statistiques")
+            st.write(f"### Statistiques de {filial}")
             st.table(pd.DataFrame([{
                 "Salaire minimum": f"{min_sal:.2f}€",
                 "Salaire maximum": f"{max_sal:.2f}€",
@@ -204,6 +203,8 @@ with open('salaries_export.csv') as f:
 
 
 show_data_tabs(filial_stats)
+
+# Affichage des stats global de l'entreprise
 st.divider()
 st.write("### Statistiques globales")
 st.table(pd.DataFrame([{
