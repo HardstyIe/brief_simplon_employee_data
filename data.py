@@ -162,7 +162,11 @@ def show_data_tabs(informations:list, filial_stats:dict):
             # Statistiques de la filiale
             stats = filial_stats.get(filial, {})
             st.write("### Statistiques")
-            st.table(pd.DataFrame([stats]))
+            st.table(pd.DataFrame([{
+        "Salaire minimum": f"{stats["Salaire minimum"]:.2f}€",
+        "Salaire maximum": f"{stats["Salaire maximum"]:.2f}€",
+        "Salaire moyen": f"{stats["Salaire moyen"]:.2f}€"
+    }]))
 
 
 # -------------------------
@@ -177,7 +181,7 @@ show_data_tabs(informations, filial_stats)
 st.divider()
 st.write("### Statistiques globales")
 st.table(pd.DataFrame([{
-        "Salaire minimum global": salary_min_g,
-        "Salaire maximum global": salary_max_g,
-        "Salaire moyen global": salary_avg_g
+        "Salaire minimum global": f"{salary_min_g:.2f}€",
+        "Salaire maximum global": f"{salary_max_g:.2f}€",
+        "Salaire moyen global": f"{salary_avg_g:.2f}€"
     }]))
