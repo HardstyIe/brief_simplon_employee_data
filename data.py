@@ -169,8 +169,8 @@ def show_data_tabs(informations:list, filial_stats:dict):
 # 5️⃣ Programme principal
 # -------------------------
 csv_rows, filial_stats, salary_min_g, salary_max_g, salary_avg_g = calc_mensual_salary(informations)
-if st.button("Télécharger CSV"):
-    export_salaries_to_csv(csv_rows)
+with open('salaries_export.csv') as f:
+   st.download_button('Télécharger CSV', f)
 
 
 show_data_tabs(informations, filial_stats)
