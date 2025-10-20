@@ -70,7 +70,7 @@ def calc_mensual_salary(informations:list):
                 salary_bonus = overtime_hours * hourly_rate * 1.5
             else:
                 salary_bonus = 0
-                
+
             mensual_salary = ((weekly_hours_worked - overtime_hours) * hourly_rate * 4) + salary_bonus
 
             filial_salary_list.append(mensual_salary)
@@ -169,7 +169,9 @@ def show_data_tabs(informations:list, filial_stats:dict):
 # 5️⃣ Programme principal
 # -------------------------
 csv_rows, filial_stats, salary_min_g, salary_max_g, salary_avg_g = calc_mensual_salary(informations)
-export_salaries_to_csv(csv_rows)
+if st.button("Télécharger CSV"):
+    export_salaries_to_csv(csv_rows)
+
 
 show_data_tabs(informations, filial_stats)
 st.divider()
