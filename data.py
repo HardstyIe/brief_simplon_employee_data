@@ -222,10 +222,10 @@ def show_data_tabs(filial_stats:dict):
 # -------------------------
 # 5️⃣ Programme principal
 # -------------------------
-csv_rows, filial_stats, salary_min_g, salary_max_g, salary_avg_g, csv_stats_global, csv_stats_fillial = calc_mensual_salary(informations)
-with open('salaries_export.csv') as f:
-   st.download_button('Télécharger CSV', f,'text/csv')
+csv_rows, filial_stats, salary_min_g, salary_max_g, salary_avg_g, csv_stats_fillial, csv_stats_global = calc_mensual_salary(informations)
 
+with open("salaries_export.csv", "rb") as f:
+    st.download_button("Télécharger le CSV", f, file_name="salaries_export.csv", mime="text/csv")
 
 show_data_tabs(filial_stats)
 export_salaries_to_csv(csv_rows,csv_stats_global,csv_stats_fillial)
