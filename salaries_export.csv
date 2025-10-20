@@ -1,4 +1,4 @@
-Fillial,Name,Job,Monthly Salary (€)
+Filiale,Name,Job,Monthly Salary (€)
 TechCorp,Helen,Chef de projet,7925.0
 TechCorp,Quincy,Testeur,4816.0
 TechCorp,Fred,Manager,8800
@@ -14,9 +14,6 @@ TechCorp,Mike,Testeur,4480
 TechCorp,Mike,Chef de projet,8225.0
 TechCorp,Charlie,Chef de projet,7400
 TechCorp,Helen,Testeur,4466.0
-TechCorp,MIN,,4200
-TechCorp,MAX,,8800
-TechCorp,AVERAGE,,6652.966666666666
 DesignWorks,Jack,Analyste,6400
 DesignWorks,Emma,Designer,4800
 DesignWorks,Ian,Chef de projet,7150.0
@@ -35,9 +32,6 @@ DesignWorks,Emma,Chef de projet,7925.0
 DesignWorks,Mike,Manager,8800
 DesignWorks,Ian,Chef de projet,7300.0
 DesignWorks,Bob,Chef de projet,7750.0
-DesignWorks,MIN,,4004.0
-DesignWorks,MAX,,9212.5
-DesignWorks,AVERAGE,,6272.194444444444
 ProjectLead,Fred,Testeur,4858.0
 ProjectLead,Mike,Développeur,5180
 ProjectLead,Oliver,Chef de projet,7225.0
@@ -55,6 +49,43 @@ ProjectLead,Steve,Designer,4665.0
 ProjectLead,Linda,Développeur,4952.5
 ProjectLead,Jack,Testeur,4382.0
 ProjectLead,Charlie,Chef de projet,7375.0
-ProjectLead,MIN,,4228.0
-ProjectLead,MAX,,8635.0
-ProjectLead,AVERAGE,,6172.529411764706
+DataSolutions,Sarah,Développeur,6080
+DataSolutions,John,Analyste,6720
+DataSolutions,Sophie,Manager,8965.0
+DataSolutions,David,Chef de projet,8000
+DataSolutions,Monica,Testeur,3920
+DataSolutions,Alex,Développeur,6251.0
+DataSolutions,Emily,Analyste,6258.0
+DataSolutions,Jason,Chef de projet,7400
+DataSolutions,Anna,Manager,8525.0
+DataSolutions,Tom,Designer,4290.0
+InnovateIT,Lucas,Développeur,5705.0
+InnovateIT,Olivia,Analyste,5600
+InnovateIT,Mark,Chef de projet,7225.0
+InnovateIT,Sophia,Manager,9047.5
+InnovateIT,Leo,Testeur,4480
+InnovateIT,Eva,Designer,4200
+InnovateIT,Nina,Chef de projet,8375.0
+InnovateIT,Eric,Manager,8882.5
+InnovateIT,Liam,Développeur,5600
+InnovateIT,Zoe,Testeur,4816.0
+AIProTech,Isabelle,Chef de projet,7150.0
+AIProTech,Alexandre,Développeur,6080
+AIProTech,Julia,Manager,8525.0
+AIProTech,Samuel,Analyste,6400
+AIProTech,Lea,Designer,4200
+AIProTech,Noah,Développeur,6308.0
+AIProTech,Ava,Testeur,4816.0
+AIProTech,Ethan,Manager,8607.5
+AIProTech,Clara,Chef de projet,7400
+AIProTech,Max,Testeur,4256.0
+DevInnov,Amelia,Développeur,5624
+DevInnov,Nathan,Analyste,6720
+DevInnov,Emma,Manager,8965.0
+DevInnov,Tom,Chef de projet,7375.0
+DevInnov,Sophie,Testeur,4256.0
+DevInnov,Charlie,Développeur,6137.0
+DevInnov,Grace,Analyste,6720
+DevInnov,Oliver,Manager,8442.5
+DevInnov,Sophia,Chef de projet,7400
+DevInnov,Lucas,Testeur,4816.0
