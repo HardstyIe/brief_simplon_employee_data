@@ -170,7 +170,7 @@ def show_data_tabs(informations:list, filial_stats:dict):
 # -------------------------
 csv_rows, filial_stats, salary_min_g, salary_max_g, salary_avg_g = calc_mensual_salary(informations)
 with open('salaries_export.csv') as f:
-   st.download_button('Télécharger CSV', f)
+   st.download_button('Télécharger CSV', f,'text/csv')
 
 
 show_data_tabs(informations, filial_stats)
