@@ -8,16 +8,16 @@ import pandas as pd
 # -------------------------
 def load_json(path: str) -> dict:
     """
-    This function is used to load data
+    Charge les données depuis un fichier JSON.
 
-    [Arguments]\n
-    path: str = The path to the json to load
+    [Arguments]
+    path: str = Chemin vers le fichier JSON à charger
 
-    [Return]\n
-    a list containing all data
+    [Return]
+    dict = Dictionnaire contenant les données, ou {} en cas d'erreur
     """
     try:
-        with open(path, 'r') as f:
+        with open(path, 'r', encoding='utf-8') as f:
             return json.load(f)
     except FileNotFoundError:
         print(f"❌ Fichier introuvable : {path}")
@@ -34,22 +34,26 @@ informations = load_json("lib/data/employe_data_test.json")
 # -------------------------
 def calc_monthly_salary(informations: dict) -> tuple[list, dict, float, float, float, list, list]:
     """
-    Function taking the json, parse it to obtain all the name from company + employe detail to obtain monthly salary using hourly rate / contract hours / overtime hours
+    Calcule les salaires mensuels de tous les employés avec gestion des heures supplémentaires.
     
-    [Arguments]\n
-    informations: any | dict = the json to parse to get the needed data
-
-    [Return]\n
-    monthly salary\n
-    min/max/average salary per branch\n
-    min/max/average company\n
-    preparation ground for csv export (csv_rows)
+    [Arguments]
+    informations: dict = Dictionnaire JSON contenant les données des employés par filiale
+    
+    [Return]
+    tuple contenant :
+    - csv_rows: list = Lignes pour export CSV (filiale, nom, poste, salaire, heures sup)
+    - branch_stats: dict = DataFrames Pandas par filiale
+    - salary_min_global: float = Salaire minimum global
+    - salary_max_global: float = Salaire maximum global
+    - salary_avg_global: float = Salaire moyen global
+    - csv_stats_filiale: list = Stats globales pour CSV
+    - csv_stats_global: list = Stats par filiale pour CSV
     """
     max_length_name = max_length_job = 0
     salary_all_company = []
     csv_rows = []
     csv_stats_global = []
-    csv_stats_fillial = []
+    csv_stats_filiale = []
     branch_stats = {} 
 
     # Trouver les largeurs pour l'affichage console
@@ -58,12 +62,12 @@ def calc_monthly_salary(informations: dict) -> tuple[list, dict, float, float, f
             max_length_name = max(max_length_name, len(employee['name']))
             max_length_job = max(max_length_job, len(employee['job']))
 
-    # Calculs
+    # Calculs des salaires par filiale
     for branch in informations:
         branch_salary_list = []
         rows = []
 
-        print(f"\nFilliale : {branch}\n")
+        print(f"\nFiliale : {branch}\n")
 
         for employee in informations[branch]:
             name = employee['name']
@@ -73,10 +77,10 @@ def calc_monthly_salary(informations: dict) -> tuple[list, dict, float, float, f
             contract_hours = employee['contract_hours']
             overtime_hours = weekly_hours_worked - contract_hours
 
-
             # Calcul du salaire mensuel :
             # - On multiplie par 4 semaines pour obtenir un montant mensuel approximatif
             # - Les heures sup sont majorées à 1,5x le taux horaire (conformément au brief)
+            
             # Salaire de base mensuel (heures normales)
             base_monthly_salary = contract_hours * hourly_rate * 4
 
@@ -93,19 +97,20 @@ def calc_monthly_salary(informations: dict) -> tuple[list, dict, float, float, f
             salary_all_company.append(monthly_salary)
             csv_rows.append([branch, name, job, monthly_salary, overtime_hours])
             rows.append({
-                "name":name,
-                "job":job,
-                "hourly_rate":hourly_rate,
-                "weekly_hours_worked":weekly_hours_worked,
-                "contract_hours":contract_hours,
-                "overtime_hours":overtime_hours,
-                "monthly_salary":round(monthly_salary,2)
+                "name": name,
+                "job": job,
+                "hourly_rate": hourly_rate,
+                "weekly_hours_worked": weekly_hours_worked,
+                "contract_hours": contract_hours,
+                "overtime_hours": overtime_hours,
+                "monthly_salary": round(monthly_salary, 2)
             })
 
             print(f"{name:<{max_length_name}} | {job:<{max_length_job}} | Salaire mensuel : {monthly_salary:.2f}€")
+        
         branch_stats[branch] = pd.DataFrame(rows)
 
-        # Statistiques de la branche
+        # Statistiques de la filiale
         if branch_salary_list:
             salary_min = min(branch_salary_list)
             salary_max = max(branch_salary_list)
@@ -113,16 +118,16 @@ def calc_monthly_salary(informations: dict) -> tuple[list, dict, float, float, f
         else:
             salary_min = salary_max = salary_avg = 0
         
-        # ajout des données branche dans le csv
-        csv_stats_global.append([branch,salary_min,salary_max,round(salary_avg, 2)]
-                                )
+        # Ajout des données filiale dans le CSV
+        csv_stats_global.append([branch, salary_min, salary_max, round(salary_avg, 2)])
+        
         print("\n" + "=" * 50)
         print(f"Statistiques des salaires pour {branch}")
         print(f"Salaire mini : {salary_min:.2f}€")
         print(f"Salaire max  : {salary_max:.2f}€")
         print(f"Salaire moyen: {salary_avg:.2f}€\n")
 
-    # Statistiques globales
+    # Statistiques globales de l'entreprise
     if salary_all_company:
         salary_min_global = min(salary_all_company)
         salary_max_global = max(salary_all_company)
@@ -130,7 +135,7 @@ def calc_monthly_salary(informations: dict) -> tuple[list, dict, float, float, f
     else:
         salary_min_global = salary_max_global = salary_avg_global = 0
 
-    csv_stats_fillial.append(["Entreprise (global)",salary_min_global,salary_max_global,round(salary_avg_global, 2)])
+    csv_stats_filiale.append(["Entreprise (global)", salary_min_global, salary_max_global, round(salary_avg_global, 2)])
 
     print("=" * 50)
     print("Statistiques globales :")
@@ -138,46 +143,46 @@ def calc_monthly_salary(informations: dict) -> tuple[list, dict, float, float, f
     print(f"Salaire max  : {salary_max_global:.2f}€")
     print(f"Salaire moyen: {salary_avg_global:.2f}€\n")
 
-    return csv_rows, branch_stats, salary_min_global, salary_max_global, salary_avg_global, csv_stats_fillial, csv_stats_global
+    return csv_rows, branch_stats, salary_min_global, salary_max_global, salary_avg_global, csv_stats_filiale, csv_stats_global
 
 
 # -------------------------
 # 3️⃣ Export CSV
 # -------------------------
-def export_salaries_to_csv(csv_rows: list, csv_stats_global: list, csv_stats_fillial: list, filename: str = "salaries_export.csv") -> None:
+def export_salaries_to_csv(csv_rows: list, csv_stats_global: list, csv_stats_filiale: list, filename: str = "salaries_export.csv") -> None:
     """
-    This function is used to create a csv file using data collected
+    Crée un fichier CSV structuré avec les salaires et statistiques.
 
-    [Arguments]\n
-    csv_rows: list = data collected previously to import in the csv\n
-    csv_stats_filia = data collected previously to import in the csv\n
-    csv_stats_fillial = data collected previously to import in the csv
-    filename: str = the name of the file you want to create (default="salaries_export.csv")
+    [Arguments]
+    csv_rows: list = Données détaillées des employés
+    csv_stats_global: list = Statistiques par filiale
+    csv_stats_filiale: list = Statistiques globales de l'entreprise
+    filename: str = Nom du fichier à créer (défaut: "salaries_export.csv")
 
-    [Return]\n
-    create a csv file with the collected data
+    [Return]
+    None = Crée un fichier CSV sur le disque
     """
     with open(filename, mode='w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile)
 
         # --- Section employés ---
         writer.writerow(["--- Détails employés ---"])
-        writer.writerow(["branche", "Name", "Job", "monthly Salary (€)", "Overtime Hours"])
+        writer.writerow(["Filiale", "Nom", "Poste", "Salaire mensuel (€)", "Heures supplémentaires"])
         writer.writerows(csv_rows)
         writer.writerow([])
 
-        writer.writerow(["--- Statistiques globales ---"])
-        # --- Section statistiques globales ---
-        writer.writerow(["branche", "Salaire minimum (€)", "Salaire maximum (€)", "Salaire moyen (€)"])
+        # --- Section statistiques par filiale ---
+        writer.writerow(["--- Statistiques par filiale ---"])
+        writer.writerow(["Filiale", "Salaire minimum (€)", "Salaire maximum (€)", "Salaire moyen (€)"])
         writer.writerows(csv_stats_global)
         writer.writerow([])
 
-        # --- Section statistiques branches ---
-        writer.writerow(["--- Statistiques par branche ---"])
+        # --- Section statistiques globales ---
+        writer.writerow(["--- Statistiques globales ---"])
         writer.writerow(["Zone", "Salaire minimum (€)", "Salaire maximum (€)", "Salaire moyen (€)"])
-        writer.writerows(csv_stats_fillial)
+        writer.writerows(csv_stats_filiale)
 
-    print(f"✅ CSV file exported: {filename}")
+    print(f"✅ Fichier CSV exporté : {filename}")
 
 
 # -------------------------
@@ -185,13 +190,16 @@ def export_salaries_to_csv(csv_rows: list, csv_stats_global: list, csv_stats_fil
 # -------------------------
 def show_data_tabs(branch_stats: dict) -> None:
     """
-    Function for streamlit app to display data
+    Affiche les données des employés dans une interface Streamlit avec filtres interactifs.
 
-    [Arguments]\n
-    branch_stats: dict = data returned by calc_monthly_salary()
+    [Arguments]
+    branch_stats: dict = DataFrames par filiale retournés par calc_monthly_salary()
+    
+    [Return]
+    None = Affiche l'interface Streamlit
     """
     if not branch_stats:
-        st.warning("Aucune branche à afficher.")
+        st.warning("Aucune filiale à afficher.")
         return
 
     tabs = st.tabs(list(branch_stats.keys()))
@@ -210,10 +218,11 @@ def show_data_tabs(branch_stats: dict) -> None:
                 min_sal, max_sal, (min_sal, max_sal), step=10, key=f"salary_{branch}"
             )
 
-            # Filtre par poste (multiselect)
+            # Filtre par poste (selectbox)
             jobs = ["Tous"] + sorted(df["job"].unique().tolist())
             job_sel = st.selectbox("Filtrer par poste", jobs, key=f"job_{branch}")
 
+            # Application des filtres
             filtered = df[
                 (df["monthly_salary"] >= salary_range[0]) &
                 (df["monthly_salary"] <= salary_range[1])
@@ -221,33 +230,34 @@ def show_data_tabs(branch_stats: dict) -> None:
             if job_sel != "Tous":
                 filtered = filtered[filtered["job"] == job_sel]
 
-            st.dataframe(filtered, width="stretch")
+            st.dataframe(filtered, use_container_width=True)
 
-            # Statistiques de la branche
+            # Statistiques de la filiale
             st.write(f"### Statistiques de {branch}")
             st.table(pd.DataFrame([{
                 "Salaire minimum": f"{min_sal:.2f}€",
                 "Salaire maximum": f"{max_sal:.2f}€",
-                "Salaire moyen": f"{round(filtered["monthly_salary"].mean(), 2):.2f}€"
+                "Salaire moyen": f"{round(filtered['monthly_salary'].mean(), 2):.2f}€"
             }]))
             st.metric("Employés visibles", len(filtered))
+
 
 # -------------------------
 # 5️⃣ Programme principal
 # -------------------------
-csv_rows, branch_stats, salary_min_g, salary_max_g, salary_avg_g, csv_stats_fillial, csv_stats_global = calc_monthly_salary(informations)
-export_salaries_to_csv(csv_rows,csv_stats_global,csv_stats_fillial)
+csv_rows, branch_stats, salary_min_g, salary_max_g, salary_avg_g, csv_stats_filiale, csv_stats_global = calc_monthly_salary(informations)
+export_salaries_to_csv(csv_rows, csv_stats_global, csv_stats_filiale)
 
 with open("salaries_export.csv", "rb") as f:
-    st.download_button("Télécharger le CSV", f, file_name="salaries_export.csv", mime="text/csv")
+    st.download_button("📥 Télécharger le CSV", f, file_name="salaries_export.csv", mime="text/csv")
 
 show_data_tabs(branch_stats)
 
 # Affichage des stats global de l'entreprise
 st.divider()
-st.write("### Statistiques globales")
+st.write("### 🌍 Statistiques globales de l'entreprise")
 st.table(pd.DataFrame([{
-        "Salaire minimum global": f"{salary_min_g:.2f}€",
-        "Salaire maximum global": f"{salary_max_g:.2f}€",
-        "Salaire moyen global": f"{salary_avg_g:.2f}€"
-    }]))
+    "Salaire minimum global": f"{salary_min_g:.2f}€",
+    "Salaire maximum global": f"{salary_max_g:.2f}€",
+    "Salaire moyen global": f"{salary_avg_g:.2f}€"
+}]))
