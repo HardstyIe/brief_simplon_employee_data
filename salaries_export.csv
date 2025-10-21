@@ -1,106 +1,106 @@
 --- Détails employés ---
 branche,Name,Job,monthly Salary (€),Overtime Hours
-TechCorp,Helen,Chef de projet,7925.0,7
-TechCorp,Quincy,Testeur,4816.0,8
+TechCorp,Helen,Chef de projet,9500.0,7
+TechCorp,Quincy,Testeur,5824.0,8
 TechCorp,Fred,Manager,8800,-7
 TechCorp,Steve,Chef de projet,8000,-8
 TechCorp,Linda,Chef de projet,7000,-1
 TechCorp,Bob,Analyste,6400,-5
-TechCorp,Steve,Chef de projet,8375.0,13
+TechCorp,Steve,Chef de projet,11300.0,13
 TechCorp,Karen,Développeur,5600,-7
 TechCorp,Paul,Designer,4200,-5
-TechCorp,Bob,Développeur,5582.5,13
-TechCorp,Bob,Manager,8525.0,10
+TechCorp,Bob,Développeur,7630.0,13
+TechCorp,Bob,Manager,11000.0,10
 TechCorp,Mike,Testeur,4480,-7
-TechCorp,Mike,Chef de projet,8225.0,3
+TechCorp,Mike,Chef de projet,8900.0,3
 TechCorp,Charlie,Chef de projet,7400,-5
-TechCorp,Helen,Testeur,4466.0,13
+TechCorp,Helen,Testeur,6104.0,13
 DesignWorks,Jack,Analyste,6400,-2
 DesignWorks,Emma,Designer,4800,-6
-DesignWorks,Ian,Chef de projet,7150.0,2
-DesignWorks,Tina,Testeur,4466.0,13
-DesignWorks,Oliver,Chef de projet,8675.0,9
+DesignWorks,Ian,Chef de projet,7600.0,2
+DesignWorks,Tina,Testeur,6104.0,13
+DesignWorks,Oliver,Chef de projet,10700.0,9
 DesignWorks,Jack,Designer,4200,-2
-DesignWorks,Oliver,Manager,9212.5,5
-DesignWorks,Rachel,Testeur,4004.0,2
-DesignWorks,Ian,Testeur,4396.0,6
-DesignWorks,Jack,Chef de projet,7150.0,2
+DesignWorks,Oliver,Manager,10450.0,5
+DesignWorks,Rachel,Testeur,4256.0,2
+DesignWorks,Ian,Testeur,5152.0,6
+DesignWorks,Jack,Chef de projet,7600.0,2
 DesignWorks,Rachel,Analyste,5600,-3
-DesignWorks,Helen,Développeur,5005.0,2
+DesignWorks,Helen,Développeur,5320.0,2
 DesignWorks,George,Développeur,5600,-10
-DesignWorks,Rachel,Testeur,4466.0,13
-DesignWorks,Emma,Chef de projet,7925.0,7
+DesignWorks,Rachel,Testeur,6104.0,13
+DesignWorks,Emma,Chef de projet,9500.0,7
 DesignWorks,Mike,Manager,8800,-8
-DesignWorks,Ian,Chef de projet,7300.0,4
-DesignWorks,Bob,Chef de projet,7750.0,10
-ProjectLead,Fred,Testeur,4858.0,9
+DesignWorks,Ian,Chef de projet,8200.0,4
+DesignWorks,Bob,Chef de projet,10000.0,10
+ProjectLead,Fred,Testeur,5992.0,9
 ProjectLead,Mike,Développeur,5180,-5
-ProjectLead,Oliver,Chef de projet,7225.0,3
+ProjectLead,Oliver,Chef de projet,7900.0,3
 ProjectLead,Tina,Manager,8140,0
-ProjectLead,Linda,Testeur,4228.0,2
-ProjectLead,Rachel,Designer,4785.0,13
-ProjectLead,Bob,Manager,8607.5,11
-ProjectLead,Steve,Chef de projet,7925.0,7
+ProjectLead,Linda,Testeur,4480.0,2
+ProjectLead,Rachel,Designer,6540.0,13
+ProjectLead,Bob,Manager,11330.0,11
+ProjectLead,Steve,Chef de projet,9500.0,7
 ProjectLead,Jack,Chef de projet,7400,-6
-ProjectLead,Jack,Designer,4695.0,11
-ProjectLead,Charlie,Manager,8635.0,6
+ProjectLead,Jack,Designer,6180.0,11
+ProjectLead,Charlie,Manager,10120.0,6
 ProjectLead,Oliver,Développeur,5180,-2
-ProjectLead,Nina,Analyste,6700.0,5
-ProjectLead,Steve,Designer,4665.0,5
-ProjectLead,Linda,Développeur,4952.5,1
-ProjectLead,Jack,Testeur,4382.0,11
-ProjectLead,Charlie,Chef de projet,7375.0,5
+ProjectLead,Nina,Analyste,7600.0,5
+ProjectLead,Steve,Designer,5340.0,5
+ProjectLead,Linda,Développeur,5110.0,1
+ProjectLead,Jack,Testeur,5768.0,11
+ProjectLead,Charlie,Chef de projet,8500.0,5
 DataSolutions,Sarah,Développeur,6080,0
 DataSolutions,John,Analyste,6720,-4
-DataSolutions,Sophie,Manager,8965.0,10
+DataSolutions,Sophie,Manager,11440.0,10
 DataSolutions,David,Chef de projet,8000,-2
 DataSolutions,Monica,Testeur,3920,0
-DataSolutions,Alex,Développeur,6251.0,3
-DataSolutions,Emily,Analyste,6258.0,6
+DataSolutions,Alex,Développeur,6764.0,3
+DataSolutions,Emily,Analyste,7392.0,6
 DataSolutions,Jason,Chef de projet,7400,-1
-DataSolutions,Anna,Manager,8525.0,10
-DataSolutions,Tom,Designer,4290.0,2
-InnovateIT,Lucas,Développeur,5705.0,2
+DataSolutions,Anna,Manager,11000.0,10
+DataSolutions,Tom,Designer,4560.0,2
+InnovateIT,Lucas,Développeur,6020.0,2
 InnovateIT,Olivia,Analyste,5600,-3
-InnovateIT,Mark,Chef de projet,7225.0,3
-InnovateIT,Sophia,Manager,9047.5,11
+InnovateIT,Mark,Chef de projet,7900.0,3
+InnovateIT,Sophia,Manager,11770.0,11
 InnovateIT,Leo,Testeur,4480,-3
 InnovateIT,Eva,Designer,4200,-1
-InnovateIT,Nina,Chef de projet,8375.0,5
-InnovateIT,Eric,Manager,8882.5,9
+InnovateIT,Nina,Chef de projet,9500.0,5
+InnovateIT,Eric,Manager,11110.0,9
 InnovateIT,Liam,Développeur,5600,-4
-InnovateIT,Zoe,Testeur,4816.0,8
-AIProTech,Isabelle,Chef de projet,7150.0,2
+InnovateIT,Zoe,Testeur,5824.0,8
+AIProTech,Isabelle,Chef de projet,7600.0,2
 AIProTech,Alexandre,Développeur,6080,0
-AIProTech,Julia,Manager,8525.0,10
+AIProTech,Julia,Manager,11000.0,10
 AIProTech,Samuel,Analyste,6400,-4
 AIProTech,Lea,Designer,4200,-5
-AIProTech,Noah,Développeur,6308.0,4
-AIProTech,Ava,Testeur,4816.0,8
-AIProTech,Ethan,Manager,8607.5,11
+AIProTech,Noah,Développeur,6992.0,4
+AIProTech,Ava,Testeur,5824.0,8
+AIProTech,Ethan,Manager,11330.0,11
 AIProTech,Clara,Chef de projet,7400,-1
-AIProTech,Max,Testeur,4256.0,8
+AIProTech,Max,Testeur,5264.0,8
 DevInnov,Amelia,Développeur,5624,-1
 DevInnov,Nathan,Analyste,6720,-2
-DevInnov,Emma,Manager,8965.0,10
-DevInnov,Tom,Chef de projet,7375.0,5
-DevInnov,Sophie,Testeur,4256.0,8
-DevInnov,Charlie,Développeur,6137.0,1
+DevInnov,Emma,Manager,11440.0,10
+DevInnov,Tom,Chef de projet,8500.0,5
+DevInnov,Sophie,Testeur,5264.0,8
+DevInnov,Charlie,Développeur,6308.0,1
 DevInnov,Grace,Analyste,6720,-3
-DevInnov,Oliver,Manager,8442.5,9
+DevInnov,Oliver,Manager,10670.0,9
 DevInnov,Sophia,Chef de projet,7400,-2
-DevInnov,Lucas,Testeur,4816.0,8
+DevInnov,Lucas,Testeur,5824.0,8
 
 --- Statistiques globales ---
 branche,Salaire minimum (€),Salaire maximum (€),Salaire moyen (€)
-TechCorp,4200,8800,6652.97
-DesignWorks,4004.0,9212.5,6272.19
-ProjectLead,4228.0,8635.0,6172.53
-DataSolutions,3920,8965.0,6640.9
-InnovateIT,4200,9047.5,6393.1
-AIProTech,4200,8607.5,6374.25
-DevInnov,4256.0,8965.0,6645.55
+TechCorp,4200,11300.0,7475.87
+DesignWorks,4200,10700.0,7021.44
+ProjectLead,4480.0,11330.0,7074.12
+DataSolutions,3920,11440.0,7327.6
+InnovateIT,4200,11770.0,7200.4
+AIProTech,4200,11330.0,7209.0
+DevInnov,5264.0,11440.0,7447.0
 
 --- Statistiques par branche ---
 Zone,Salaire minimum (€),Salaire maximum (€),Salaire moyen (€)
-Entreprise (global),3920,9212.5,6424.06
+Entreprise (global),3920,11770.0,7229.16
