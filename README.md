@@ -27,14 +27,15 @@ pip install -r requirement.txt
 ```
 
 ## Exécution
-1. Interface Streamlit (recommandé) :
+1. Interface Streamlit + rendu console (recommandé) :
 ```sh
 streamlit run app.py
 ```
-2. Script console (génère le CSV et Affiche l'output console) :
+2. Script rendu console uniquement :
 ```sh
 python app.py
 ```
+Attention !!: l'option 2 génére des warnings a ne pas prendre en compte, due au fait que streamlit n'est pas initialisé via script console 
 Le CSV exporté par défaut est `salaries_export.csv`.
 
 ## Données
