@@ -1,5 +1,5 @@
 --- Détails employés ---
-Filiale,Name,Job,Mensual Salary (€),Overtime Hours
+branche,Name,Job,monthly Salary (€),Overtime Hours
 TechCorp,Helen,Chef de projet,7925.0,7
 TechCorp,Quincy,Testeur,4816.0,8
 TechCorp,Fred,Manager,8800,-7
@@ -92,11 +92,7 @@ DevInnov,Sophia,Chef de projet,7400,-2
 DevInnov,Lucas,Testeur,4816.0,8
 
 --- Statistiques globales ---
-Filiale,Salaire minimum (€),Salaire maximum (€),Salaire moyen (€)
-Entreprise (global),3920,9212.5,6424.06
-
---- Statistiques par filiale ---
-Zone,Salaire minimum (€),Salaire maximum (€),Salaire moyen (€)
+branche,Salaire minimum (€),Salaire maximum (€),Salaire moyen (€)
 TechCorp,4200,8800,6652.97
 DesignWorks,4004.0,9212.5,6272.19
 ProjectLead,4228.0,8635.0,6172.53
@@ -104,3 +100,7 @@ DataSolutions,3920,8965.0,6640.9
 InnovateIT,4200,9047.5,6393.1
 AIProTech,4200,8607.5,6374.25
 DevInnov,4256.0,8965.0,6645.55
+
+--- Statistiques par branche ---
+Zone,Salaire minimum (€),Salaire maximum (€),Salaire moyen (€)
+Entreprise (global),3920,9212.5,6424.06

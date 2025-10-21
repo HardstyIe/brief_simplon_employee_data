@@ -1,13 +1,13 @@
 # Brief Simplon — Gestion des salaires employés (Collections)
 
-Projet d'initiation IA/Data pour calculer, afficher et exporter les salaires mensuels des employés par filiale.
+Projet d'initiation IA/Data pour calculer, afficher et exporter les salaires mensuels des employés par branche.
 
 ## Aperçu
 Le script principal est `data.py`. Il charge les données JSON, calcule les salaires mensuels (avec prise en compte des heures supplémentaires), exporte un CSV et peut afficher un tableau interactif avec Streamlit.
 
 Fonctions principales :
 - `load_json` : charge les fichiers JSON.
-- `calc_mensual_salary` : calcule les salaires mensuels et génère les statistiques et les lignes CSV.
+- `calc_monthly_salary` : calcule les salaires mensuels et génère les statistiques et les lignes CSV.
 - `export_salaries_to_csv` : exporte les résultats dans `salaries_export.csv`.
 - `show_data_tabs` : affiche les données et statistiques dans une interface Streamlit.
 
@@ -42,9 +42,9 @@ Le CSV exporté par défaut est `salaries_export.csv`.
 - Pour utiliser d'autres données, modifiez l'appel à `load_json` dans `data.py` ou remplacez le fichier JSON ciblé.
 
 ## Résultats & Statistiques
-- `calc_mensual_salary` retourne :
+- `calc_monthly_salary` retourne :
   - lignes CSV prêtes à l'export,
-  - statistiques par filiale,
+  - statistiques par branche,
   - statistiques globales (min / max / moyenne).
 
 ## Tests
@@ -55,4 +55,3 @@ Ce projet est sous licence MIT — voir `LICENSE`.
 
 ## Contribution
 Issues et PR bienvenues. Respecter la structure de données JSON lors de l'ajout ou modification des entrées.
-
