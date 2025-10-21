@@ -230,7 +230,7 @@ def show_data_tabs(branch_stats: dict) -> None:
             if job_sel != "Tous":
                 filtered = filtered[filtered["job"] == job_sel]
 
-            st.dataframe(filtered, use_container_width=True)
+            st.dataframe(filtered, width="stretch")
 
             # Statistiques de la filiale
             st.write(f"### Statistiques de {branch}")
